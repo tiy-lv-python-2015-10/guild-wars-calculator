@@ -28,13 +28,33 @@ class HomePageView(TemplateView):
         return context
 
 
-def recipe_detail(request, recipe_id):
+def recipe_detail(request, recipe_id, item_id):
     response = requests.get("https://api.guildwars2.com/v2/recipes/" + recipe_id)
+    response2 = requests.get('https://api.guildwars2.com/v2/items/' +item_id)
+    response3 = requests.get('https://api.guildwars2.com/v2/commerce/prices/' +item_id)
+
+
     recipe_list = response.json()
     recipe_type = recipe_list['type']
     craft_time = recipe_list['time_to_craft_ms']
     disciplines = recipe_list['disciplines']
 
+
+   
+    
+    item_list = response2.json()
+    item_name = item_list['name']
+
+
+    price_list = response3.json()
+    item_price = price_list['buys']['unit_price']
+    item_total = price_list['buys']['unit_price']
+
+
+
+
     return render(request, 'guild_wars_app/recipe_detail.html',
                   {'recipe': recipe_list, 'recipe_type': recipe_type, 'craft_time': craft_time,
                    'disciplines': disciplines})
+
+
