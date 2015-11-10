@@ -1,0 +1,16 @@
+{% extends 'guild_wars_app/base.html' %}
+{% load bootstrap3 %}
+
+{% block content %}
+
+<h1>Recipe</h1>
+    <h2 >Recipe Type:</h2>
+        <p>{{ recipe_type }}</p>
+    <h2 >Disciplines:</h2>
+        {% for discipline in disciplines %}
+            <p>{{ discipline }}</p>
+        {% endfor %}
+    <h2 >Craft Time:</h2>
+        <p>{{ craft_time }}</p>
+
+{% endblock %}
