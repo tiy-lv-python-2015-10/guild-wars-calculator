@@ -1,0 +1,21 @@
+{% extends 'calculator/calculator_base.html' %}
+
+{% block content %}
+    <h2>Recipe</h2>
+        <h3>Type:</h3>
+        {{ type }}
+        <h3>Time to Craft:</h3>
+        {{ time_to_craft }}
+        <h3>Disciplines:</h3>
+        {% for d in disciplines %}
+            {{ d }},
+        {% endfor %}
+        <h3>Item Name:</h3>
+        {{ name }}
+        <h3>Ingredients:</h3>
+        {{ ingredients_name }}
+{#        {% for item in ingredients_name %}#}
+{#        {{ item }},#}
+{#        {% endfor %}#}
+
+{% endblock %}
