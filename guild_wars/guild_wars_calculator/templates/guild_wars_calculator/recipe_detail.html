@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <h2>{{ recipe.type }}</h2>
+    <h4>Total Price: {{ recipe.total_price }}</h4>
+    <h4>Time to craft: {{ recipe.time_to_craft }}ms</h4>
+    <h4>Disciplines:</h4>
+    <ul>
+    {% for discipline in recipe.disciplines %}
+        <li>{{ discipline.name }}</li>
+    {% endfor %}
+    </ul>
+    {% for x in recipe.items %}
+        <h3>{{ x.name }}</h3>
+        <ul>
+            <li><img src="{{ x.icon }}"></li>
+            <li>Single Price: {{ x.price }}</li>
+            <li>Count needed: {{ x.count }}</li>
+            <li>Total Price: {{ x.total }}</li>
+            <li>Sell Price: {{ x.sell_price }}</li>
+            <li>Buy price - Sell price: {{ x.price_diff }}</li>
+        </ul>
+    {% endfor %}
+
+</body>
+</html>
